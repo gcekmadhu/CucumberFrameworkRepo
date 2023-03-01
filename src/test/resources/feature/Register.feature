@@ -17,6 +17,8 @@ Feature: Registration Page
     And User enters confirmPassword "<Confirm>"
     And User clicks on Register Button
     Then User is registered to ParaBank with "<UserName>" and "<Password>"
+    And Message at first line is displayed as "Welcome <UserName>"
+    And Message at second line is displayed as "Your account was created successfully. You are now logged in."
     Examples:
       | firstName | LastName | Address | City | State | ZipCode | SSN | UserName | Password | Confirm |
       | Madhuri67 | Kulkarni67 | Browning | Coventry | UK | 416410 | 123 | madhu67 | Abcd123 | Abcd123 |
@@ -28,4 +30,4 @@ Feature: Registration Page
     Then ForgotInfo link is dispalyed
 
   Scenario: Title of the page
-    Then Title of the page is "ParaBank | Register for Free Online Account Access11"
+    Then Title of the page is "ParaBank | Register for Free Online Account Access"
