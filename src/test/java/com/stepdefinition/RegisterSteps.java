@@ -86,7 +86,9 @@ public class RegisterSteps {
 
     @Then("User is registered to ParaBank with {string} and {string}")
     public void user_is_registered_to_para_bank_with_and(String userName, String Password) {
-        System.out.println("User is registered with " +userName+" and password "+password);
+        this.userName=userName;
+        this.password=Password;
+        System.out.println("User is registered with " +userName+" and password "+Password);
     }
 
     @Then("ForgotInfo link is dispalyed")
@@ -99,6 +101,13 @@ public class RegisterSteps {
         Assert.assertEquals(expectedTitle,registerPage.getTitle());
     }
 
-
+    @Then("Message at first line is displayed as {string}")
+    public void message_at_first_line_is_displayed_as(String message) {
+        Assert.assertEquals(message,"Welcome "+userName);
+    }
+    @Then("Message at second line is displayed as {string}")
+    public void message_at_second_line_is_displayed_as(String message) {
+        Assert.assertEquals(message,"Your account was created successfully. You are now logged in.");
+    }
 
 }
